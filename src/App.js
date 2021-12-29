@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import Styles from './styles/Styles.css';
+import CardWeather from './components/CardWeather';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="app-name">
+        <h1><i className="fas fa-cloud"></i> Tu ClimaNow-App</h1>
+      </div>
+      <CardWeather />
     </div>
   );
 }
