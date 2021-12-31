@@ -3,13 +3,17 @@ import useFetchWeat from "../hooks/useFetchWeat";
 
 const CardWeather = () => {
     
-    const {name, sys, main, weather, wind} = useFetchWeat();
+    const [{name, sys, main, weather, wind}, isLoading] = useFetchWeat();
     const [degrees, setDegrees] = useState(true);
     const changeDegrees = () => setDegrees(!degrees);
 
     return (
         <div className="card-weather">
-            <div className="info-weather">
+        {isLoading ? (
+            <div className="loader"> </div>
+            ) : (
+                <>
+                <div className="info-weather">
                 <h2>{name},{sys?.country}</h2> 
                 {
                 degrees ? (<p>{(main?.temp)?.toFixed(1)}°C</p>) 
@@ -36,7 +40,10 @@ const CardWeather = () => {
                 <img src={`http://openweathermap.org/img/wn/${weather?.[0].icon}@4x.png`} alt="" />
                 <span>- {weather?.[0].description} -</span>
             </div>
-            <a className="btn-unidad" onClick={changeDegrees}>Cambiar a °F/°C</a>          
+            <a className="btn-unidad" onClick={changeDegrees}>Cambiar a °F/°C</a>  
+            </> 
+            ) }
+                   
         </div>
     );
 };
