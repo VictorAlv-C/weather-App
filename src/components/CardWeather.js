@@ -2,7 +2,7 @@ import { useState } from "react";
 import useFetchWeat from "../hooks/useFetchWeat";
 
 const CardWeather = () => {
-
+    
     const {name, sys, main, weather, wind} = useFetchWeat();
     const [degrees, setDegrees] = useState(true);
     const changeDegrees = () => setDegrees(!degrees);
